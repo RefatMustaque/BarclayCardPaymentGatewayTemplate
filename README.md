@@ -1,2 +1,2 @@
 # BarclayGatewaySample
-Simple template to demonstrate the integration of Barclay card payment gateway
+Sample code to demonstrate the integration of Barclay card payment gateway.
