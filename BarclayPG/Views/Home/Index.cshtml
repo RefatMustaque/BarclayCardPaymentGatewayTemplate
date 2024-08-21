@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Payment Page";
+}
+@model BarclayPG.Models.OrderInformationVM
+
+<div class="">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <form>
+                <br />
+                <h6>Order Amount</h6>
+                <hr />
+                <div class="form-group">
+                    <label asp-for=Amount></label>
+                    <input class="form-control" asp-for=Amount placeholder="Amount">
+                    <small class="form-text text-muted">This is the amount that you want to pay using the gateway</small>
+                </div>
+                <br />
+                <h6>Billing Information</h6>
+                <hr />
+                <div class="form-group">
+                    <label asp-for=CustomerName></label>
+                    <input class="form-control" asp-for=CustomerName placeholder="Billing Person Name">
+                    <small class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerEmail></label>
+                    <input class="form-control" asp-for=CustomerEmail placeholder="Billing Person Email">
+                    <small class="form-text text-muted"></small>
+                </div>
+                <br />
+                <h6>Barclay Card Payment Gateway Information</h6>
+                <hr />
+                <div class="form-group">
+                    <label asp-for=GatewayPSPID></label>
+                    <input class="form-control" asp-for=GatewayPSPID placeholder="Gateway PSPID">
+                    <small class="form-text text-muted">Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

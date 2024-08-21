@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|d:\\refatdevelopment\\barclaygatewaysample\\barclaypg\\barclaypg\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|solutionrelative:barclaypg\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|d:\\refatdevelopment\\barclaygatewaysample\\barclaypg\\barclaypg\\models\\orderinformationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|solutionrelative:barclaypg\\models\\orderinformationvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|d:\\refatdevelopment\\barclaygatewaysample\\barclaypg\\barclaypg\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|solutionrelative:barclaypg\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|d:\\refatdevelopment\\barclaygatewaysample\\barclaypg\\barclaypg\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{72EE2886-22B7-432F-BE0D-AF922BEE972B}|BarclayPG\\BarclayPG.csproj|solutionrelative:barclaypg\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderInformationVM.cs",
+              "DocumentMoniker": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Models\\OrderInformationVM.cs",
+              "RelativeDocumentMoniker": "BarclayPG\\Models\\OrderInformationVM.cs",
+              "ToolTip": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Models\\OrderInformationVM.cs",
+              "RelativeToolTip": "BarclayPG\\Models\\OrderInformationVM.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAywB8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T00:38:20.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BarclayPG\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BarclayPG\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAA0AAAAANTMzMzMbwB0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T00:20:44.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BarclayPG\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BarclayPG\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA4AAACAZmZmZiYkwBwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T00:09:24.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BarclayPG\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\RefatDevelopment\\BarclayGatewaySample\\BarclayPG\\BarclayPG\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BarclayPG\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAwAAAAgMzMzM7MqwBIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T23:59:23.333Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
