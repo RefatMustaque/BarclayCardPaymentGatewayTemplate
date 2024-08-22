@@ -6,14 +6,21 @@
 <div class="">
     <div class="row">
         <div class="col-md-4 mx-auto">
-            <form>
+            <form asp-action="PaymentSummary" asp-controller="Home">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <br />
                 <h6>Order Amount</h6>
                 <hr />
                 <div class="form-group">
                     <label asp-for=Amount></label>
-                    <input class="form-control" asp-for=Amount placeholder="Amount">
-                    <small class="form-text text-muted">This is the amount that you want to pay using the gateway</small>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">£</span>
+                      </div>
+                        <input type="text" class="form-control" asp-for=Amount placeholder="Amount" aria-describedby="basic-addon1">
+                    </div>
+                    <small class="form-text text-muted">This is the amount that you want your customer to pay using the gateway. You will pre calculate and show.</small>
+                    <span asp-validation-for="Amount" class="text-danger"></span>
                 </div>
                 <br />
                 <h6>Billing Information</h6>
@@ -21,12 +28,44 @@
                 <div class="form-group">
                     <label asp-for=CustomerName></label>
                     <input class="form-control" asp-for=CustomerName placeholder="Billing Person Name">
-                    <small class="form-text text-muted"></small>
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for=CustomerEmail></label>
                     <input class="form-control" asp-for=CustomerEmail placeholder="Billing Person Email">
-                    <small class="form-text text-muted"></small>
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerZip></label>
+                    <input class="form-control" asp-for=CustomerZip placeholder="Billing Person Zip">
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerZip" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerAddress></label>
+                    <input class="form-control" asp-for=CustomerAddress placeholder="Billing Person Address">
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerCity></label>
+                    <input class="form-control" asp-for=CustomerCity placeholder="Billing Person City">
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerTown></label>
+                    <input class="form-control" asp-for=CustomerTown placeholder="Billing Person Town">
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerTown" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=CustomerTelephoneNo></label>
+                    <input class="form-control" asp-for=CustomerTelephoneNo placeholder="Billing Person Telephone/Mobile No">
+                    <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
+                    <span asp-validation-for="CustomerTelephoneNo" class="text-danger"></span>
                 </div>
                 <br />
                 <h6>Barclay Card Payment Gateway Information</h6>
@@ -34,8 +73,22 @@
                 <div class="form-group">
                     <label asp-for=GatewayPSPID></label>
                     <input class="form-control" asp-for=GatewayPSPID placeholder="Gateway PSPID">
-                    <small class="form-text text-muted">Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
+                    <small class="form-text text-muted">You have to create a test account to use the PSPID. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
+                    <span asp-validation-for="GatewayPSPID" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for=GatewaySHAInSecretKey></label>
+                    <input class="form-control" asp-for=GatewaySHAInSecretKey placeholder="SHA-In Secret Key">
+                    <small class="form-text text-muted">You will have to use your test account's secret key. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
+                    <span asp-validation-for="GatewaySHAInSecretKey" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for=GatewaySHAOutSecretKey></label>
+                    <input class="form-control" asp-for=GatewaySHAOutSecretKey placeholder="SHA-Out Secret Key">
+                    <small class="form-text text-muted">You will have to use your test account's secret key. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
+                    <span asp-validation-for="GatewaySHAOutSecretKey" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BarclayPG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10f55710b4f11b0394e0ca528a3afa563e4094a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2606c6fdb28e7246e078b97492704d5db8c5a2c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BarclayPG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BarclayPG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
