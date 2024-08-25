@@ -9,7 +9,7 @@
             <form asp-action="PaymentSummary" asp-controller="Home">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <br />
-                <h6>Order Amount</h6>
+                <h5>Order Amount</h5>
                 <hr />
                 <div class="form-group">
                     <label asp-for=Amount></label>
@@ -23,7 +23,7 @@
                     <span asp-validation-for="Amount" class="text-danger"></span>
                 </div>
                 <br />
-                <h6>Billing Information</h6>
+                <h5>Billing Information</h5>
                 <hr />
                 <div class="form-group">
                     <label asp-for=CustomerName></label>
@@ -66,27 +66,6 @@
                     <input class="form-control" asp-for=CustomerTelephoneNo placeholder="Billing Person Telephone/Mobile No">
                     <small class="form-text text-muted">You may want to prefill with your customer billing information.</small>
                     <span asp-validation-for="CustomerTelephoneNo" class="text-danger"></span>
-                </div>
-                <br />
-                <h6>Barclay Card Payment Gateway Information</h6>
-                <hr />
-                <div class="form-group">
-                    <label asp-for=GatewayPSPID></label>
-                    <input class="form-control" asp-for=GatewayPSPID placeholder="Gateway PSPID">
-                    <small class="form-text text-muted">You have to create a test account to use the PSPID. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
-                    <span asp-validation-for="GatewayPSPID" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for=GatewaySHAInSecretKey></label>
-                    <input class="form-control" asp-for=GatewaySHAInSecretKey placeholder="SHA-In Secret Key">
-                    <small class="form-text text-muted">You will have to use your test account's secret key. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
-                    <span asp-validation-for="GatewaySHAInSecretKey" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for=GatewaySHAOutSecretKey></label>
-                    <input class="form-control" asp-for=GatewaySHAOutSecretKey placeholder="SHA-Out Secret Key">
-                    <small class="form-text text-muted">You will have to use your test account's secret key. Ideally you would keep it encrypted in database or in your application and use it when needed.</small>
-                    <span asp-validation-for="GatewaySHAOutSecretKey" class="text-danger"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

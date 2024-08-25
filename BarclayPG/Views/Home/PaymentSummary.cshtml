@@ -6,13 +6,40 @@
 <div class="">
     <div class="row">
         <div class="col-md-4 mx-auto">
-            <form>
-                <br />
-                <h6>Order Amount</h6>
-                <hr />
-                <div class="form-group">
-                    <input type="text" class="form-control" asp-for=Amount placeholder="Amount" aria-describedby="basic-addon1">
-                </div>
+            <br />
+            <h5>Order Amount</h5>
+            <hr />
+            <div class="form-group">
+            @{
+                decimal dividedValue = (decimal)Convert.ToInt64(Model.Amount) / 100;
+            }
+                <h6><b>Order ID</b> : </h6><span>@Model.OrderId</span>
+                <h6><b>Amount</b> : </h6><span>@dividedValue</span>&nbsp;<span>@Model.Currency</span>
+            </div>
+            <form method="POST" action="https://mdepayments.epdq.co.uk/ncol/test/orderstandard_utf8.asp">
+                
+                <!-- hidden parameters to submit to gateway -->
+                <input type="hidden" name="ACCEPTURL" value="@Model.AcceptURL">
+                <input type="hidden" name="AMOUNT" value="@Model.Amount" />
+                <input type="hidden" name="CANCELURL" value="@Model.CancelURL">
+                <input type="hidden" name="CATALOGURL" value="@Model.CATALOGURL">
+                <input type="hidden" name="CN" value="@Model.CN" />
+                <input type="hidden" name="CURRENCY" value="@Model.Currency" />
+                <input type="hidden" name="DECLINEURL" value="@Model.DeclineURL">
+                <input type="hidden" class="form-control" readonly name="EMAIL" value="@Model.Email" />
+                <input type="hidden" name="EXCEPTIONURL" value="@Model.ExceptionURL">
+                <input type="hidden" name="HOMEURL" value="@Model.HOMEURL">
+                <input type="hidden" name="LANGUAGE" value="@Model.Language" />
+                <input type="hidden" name="ORDERID" value="@Model.OrderId" />
+                <input type="hidden" name="OWNERADDRESS" value="@Model.OwnerAddress">
+                <input type="hidden" name="OWNERCTY" value="@Model.OwnerCity">
+                <input type="hidden" name="OWNERTELNO" value="@Model.OwnerTelephoneNo">
+                <input type="hidden" name="OWNERTOWN" value="@Model.OwnerTown">
+                <input type="hidden" name="OWNERZIP" value="@Model.OwnerZIP">
+                <input type="hidden" name="PSPID" value="@Model.PSPID" />
+                <input type="hidden" name="SHASIGN" value="@Model.ShaPass" />
+                <input type="hidden" name="TITLE" value="@Model.TITLE">
+                <input type="submit" value="Pay" class="btn btn-primary" id="submit" name="submit" />
             </form>
         </div>
     </div>

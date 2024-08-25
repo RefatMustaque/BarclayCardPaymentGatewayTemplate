@@ -1,7 +1,12 @@
+using BarclayPG.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTransient<IPaymentService, PaymentService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

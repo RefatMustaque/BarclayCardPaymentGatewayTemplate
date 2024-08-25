@@ -1,0 +1,45 @@
+﻿@model BarclayPG.Models.PaymentTransactionFeedbackVm
+@{
+    ViewData["Title"] = "Payment Transaction Processed";
+}
+<div>
+    <div class="d-flex">
+        <div>
+            <div class="card p-4 bcg-card" style="min-width: 320px; width: 384px;">
+                @if (Model.Status == "ACCEPTED")
+                {
+                    <h1 class="text-pink">
+                        Thank you!
+                    </h1>
+                    <h4>for your order.</h4>
+                    <h5>Order Id : @Model.OrderId</h5>
+                }
+                else if (Model.Status == "EXCEPTION")
+                {
+                    <h1 class="text-pink">
+                        EXCEPTION
+                    </h1>
+                    <h5>Order Id : @Model.OrderId</h5>
+                }
+                else if (Model.Status == "DECLINED")
+                {
+                    <h1 class="text-pink">
+                        DECLINED
+                    </h1>
+                    <h5>Order Id : @Model.OrderId</h5>
+                }
+                else if (Model.Status == "CANCELLED")
+                {
+                    <h1 class="text-pink">
+                        CANCELLED
+                    </h1>
+                    <h5>Order Id : @Model.OrderId</h5>
+                }
+
+
+                <p class="mt-5 me-4"> @Model.Msg</p>
+                <a asp-controller="Home" asp-action="Index">Go Back to Payment Page</a>
+            </div>
+        </div>
+    </div>
+</div>

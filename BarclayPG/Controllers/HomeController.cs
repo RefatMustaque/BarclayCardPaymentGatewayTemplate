@@ -1,4 +1,5 @@
 using BarclayPG.Models;
+using BarclayPG.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Reflection;
@@ -8,10 +9,12 @@ namespace BarclayPG.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPaymentService _paymentService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IPaymentService paymentService)
         {
             _logger = logger;
+            _paymentService = paymentService;
         }
 
         public IActionResult Index()
@@ -34,29 +37,8 @@ namespace BarclayPG.Controllers
         {
             if (ModelState.IsValid)
             {
-                PaymentSummaryVm paymentSummaryVm = new PaymentSummaryVm()
-                {
-                    //General parameters
-                    Amount = Convert.ToInt64((orderInformationVM.Amount * 100)).ToString(), //"2000",
-                    Currency = "£",
-                    Language = "en_US",
-                    OrderId = Guid.NewGuid().ToString(),
-                    PSPID = orderInformationVM.GatewayPSPID,
+                PaymentSummaryVm paymentSummaryVm = _paymentService.GetPaymentFormData(orderInformationVM);
 
-                    //layout information
-                    TITLE = "Payment Gateway Page",
-
-                    // post payment redirection
-                    //CancelURL = GetBaseUrl() + "/",
-                    //AcceptURL = GetBaseUrl() + "/",
-                    //ExceptionURL = GetBaseUrl() + "/", 
-                    //DeclineURL = GetBaseUrl() + "/" ,
-                    CATALOGURL = "",
-                    HOMEURL = "",
-
-                    //Extra info
-                    PaymentGatewayURL = "",
-                };
                 return View(paymentSummaryVm);
             }
             else
@@ -65,10 +47,91 @@ namespace BarclayPG.Controllers
             }
         }
 
-        //public IActionResult PaymentCancelled(Dictionary<string, string> transactionData)
-        //{
+        public IActionResult PaymentCancelled(Dictionary<string, string> transactionData)
+        {
+            bool isValid = _paymentService.TransactionFeedIsValid(transactionData);
 
-        //}
+            if (!isValid)
+            {
+                return BadRequest("Payment information is not valid.");
+            }
+
+            if (!transactionData.TryGetValue("orderID", out string orderId))
+            {
+                return BadRequest("Missing order ID");
+            }
+
+            PaymentTransactionFeedbackVm paymentTransactionFeedbackVm = new PaymentTransactionFeedbackVm();
+            paymentTransactionFeedbackVm.Msg = "Really sorry that you had to cancel the payment. Please click below to go back to the campaign.";
+            paymentTransactionFeedbackVm.OrderId = orderId;
+            paymentTransactionFeedbackVm.Status = "CANCELLED";
+            return View("PostPaymentTransaction", paymentTransactionFeedbackVm);
+        }
+
+        public IActionResult PaymentDeclined(Dictionary<string, string> transactionData)
+        {
+            bool isValid = _paymentService.TransactionFeedIsValid(transactionData);
+
+            if (!isValid)
+            {
+                return BadRequest("Payment information is not valid.");
+            }
+
+            if (!transactionData.TryGetValue("orderID", out string orderId))
+            {
+                return BadRequest("Missing order ID");
+            }
+
+            PaymentTransactionFeedbackVm paymentTransactionFeedbackVm = new PaymentTransactionFeedbackVm();
+            paymentTransactionFeedbackVm.Msg = "Sorry your payment is declined. Please check your card information is correct or there is enough balance. If you still persist the problem contact with the administrator.";
+            paymentTransactionFeedbackVm.OrderId = orderId;
+            paymentTransactionFeedbackVm.Status = "DECLINED";
+            return View("PostPaymentTransaction", paymentTransactionFeedbackVm);
+        }
+
+        public IActionResult PaymentException(Dictionary<string, string> transactionData)
+        {
+            bool isValid = _paymentService.TransactionFeedIsValid(transactionData);
+
+            if (!isValid)
+            {
+                return BadRequest("Payment information is not valid.");
+            }
+
+            if (!transactionData.TryGetValue("orderID", out string orderId))
+            {
+                return BadRequest("Missing order ID");
+            }
+
+            
+            PaymentTransactionFeedbackVm paymentTransactionFeedbackVm = new PaymentTransactionFeedbackVm();
+            paymentTransactionFeedbackVm.Msg = "Sorry, something went wrong. Please try again later. If you still persist the problem contact with the administrator.";
+            paymentTransactionFeedbackVm.OrderId = orderId;
+            paymentTransactionFeedbackVm.Status = "EXCEPTION";
+            return View("PostPaymentTransaction", paymentTransactionFeedbackVm);
+        }
+
+        public IActionResult PaymentAccepted(Dictionary<string, string> transactionData)
+        {
+            bool isValid = _paymentService.TransactionFeedIsValid(transactionData);
+
+            if (!isValid)
+            {
+                return BadRequest("Payment information is not valid.");
+            }
+
+            if (!transactionData.TryGetValue("orderID", out string orderId))
+            {
+                return BadRequest("Missing order ID");
+            }
+
+            
+            PaymentTransactionFeedbackVm paymentTransactionFeedbackVm = new PaymentTransactionFeedbackVm();
+            paymentTransactionFeedbackVm.Msg = "Congratulations! Payment was succesful.";
+            paymentTransactionFeedbackVm.OrderId = orderId;
+            paymentTransactionFeedbackVm.Status = "ACCEPTED";
+            return View("PostPaymentTransaction", paymentTransactionFeedbackVm);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

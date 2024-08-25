@@ -31,16 +31,5 @@ namespace BarclayPG.Models
         [Display(Name = "Telephone/Mobile")]
         [Required]
         public string CustomerTelephoneNo { get; set; }
-
-        //Gateway Information
-        [Display(Name = "PSPID")]
-        [Required]
-        public string GatewayPSPID { get; set; }
-        [Display(Name = "SHA-In Secret Key")]
-        [Required]
-        public string GatewaySHAInSecretKey { get; set; }
-        [Display(Name = "SHA-Out Secret Key")]
-        [Required]
-        public string GatewaySHAOutSecretKey { get; set; }
     }
 }

@@ -1,6 +1,11 @@
-﻿namespace BarclayPG.Services
+﻿
+using BarclayPG.Models;
+
+namespace BarclayPG.Services
 {
-    public class IPaymentService
+    public interface IPaymentService
     {
+        public PaymentSummaryVm GetPaymentFormData(OrderInformationVM orderInformationVM);
+        public bool TransactionFeedIsValid(Dictionary<string, string> transactionData);
     }
 }
